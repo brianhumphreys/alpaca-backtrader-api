@@ -80,6 +80,7 @@ class AlpacaBroker(with_metaclass(MetaAlpacaBroker, BrokerBase)):
         positions = collections.defaultdict(Position)
         if self.p.use_positions:
             broker_positions = self.o.oapi.list_positions()
+            print(broker_positions)
             broker_positions_symbols = [p.symbol for p in broker_positions]
             broker_positions_mapped_by_symbol = \
                 {p.symbol: p for p in broker_positions}
