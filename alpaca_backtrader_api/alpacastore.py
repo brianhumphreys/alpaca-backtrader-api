@@ -415,11 +415,13 @@ class AlpacaStore(with_metaclass(MetaSingleton, object)):
         print('=========================================================')
         print('STORE DATA SET')
         print('=========================================================')
-        index = [pytz.timezone(NY).localize(dtbegin) if
+        print(cdl)
+        print(cdl.loc[
+              pytz.timezone(NY).localize(dtbegin) if
               not dtbegin.tzname() else dtbegin:
               pytz.timezone(NY).localize(dtend) if
-              not dtend.tzname() else dtend]
-        print(index)
+              not dtend.tzname() else dtend
+              ])
         cdl = cdl.loc[
               pytz.timezone(NY).localize(dtbegin) if
               not dtbegin.tzname() else dtbegin:
