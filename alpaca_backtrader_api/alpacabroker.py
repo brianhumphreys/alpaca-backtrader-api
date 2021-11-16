@@ -83,6 +83,14 @@ class AlpacaBroker(with_metaclass(MetaAlpacaBroker, BrokerBase)):
         if self.p.use_positions:
             broker_positions = self.o.oapi.list_positions()
             for pos in broker_positions:
+                try:
+                    print(pos.code)
+                except:
+                    print('pos.code no go')
+                try:
+                    print(pos.message)
+                except:
+                    print('pos.message no go')
                 # print(pos.code)
                 # print(pos.message)
                 pprint(vars(pos))
