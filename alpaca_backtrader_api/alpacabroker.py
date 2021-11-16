@@ -99,6 +99,14 @@ class AlpacaBroker(with_metaclass(MetaAlpacaBroker, BrokerBase)):
                     print(pos['message'])
                 except:
                     print('pos[message] no go')
+                try:
+                    print(pos._raw['code'])
+                except:
+                    print('pos._raw[code] no go')
+                try:
+                    print(pos.raw['message'])
+                except:
+                    print('pos._raw[message] no go')
                 # print(pos.code)
                 # print(pos.message)
                 pprint(vars(pos))
