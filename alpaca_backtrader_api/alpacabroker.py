@@ -83,8 +83,8 @@ class AlpacaBroker(with_metaclass(MetaAlpacaBroker, BrokerBase)):
         if self.p.use_positions:
             broker_positions = self.o.oapi.list_positions()
             for pos in broker_positions:
-                print(pos["code"])
-                print(pos["message"])
+                print(pos.code)
+                print(pos.message)
                 pprint(vars(pos))
             print(broker_positions)
             broker_positions_symbols = [p.symbol for p in broker_positions]
