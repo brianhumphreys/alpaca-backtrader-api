@@ -8,8 +8,6 @@ from backtrader.utils.py3 import with_metaclass, iteritems
 from backtrader.comminfo import CommInfoBase
 from backtrader.position import Position
 
-from pprint import pprint
-
 from alpaca_backtrader_api import alpacastore
 
 
@@ -82,17 +80,6 @@ class AlpacaBroker(with_metaclass(MetaAlpacaBroker, BrokerBase)):
         positions = collections.defaultdict(Position)
         if self.p.use_positions:
             broker_positions = self.o.oapi.list_positions()
-            for pos in broker_positions:
-                try:
-                    print(pos._raw)
-                except:
-                    print('pos._raw no go')
-
-                print()
-                # print(pos.code)
-                # print(pos.message)
-                pprint(vars(pos))
-            print(broker_positions)
             broker_positions_symbols = [p.symbol for p in broker_positions]
             broker_positions_mapped_by_symbol = \
                 {p.symbol: p for p in broker_positions}

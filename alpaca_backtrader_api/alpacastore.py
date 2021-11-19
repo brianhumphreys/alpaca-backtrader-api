@@ -410,18 +410,7 @@ class AlpacaStore(with_metaclass(MetaSingleton, object)):
             q.put(None)
             return
 
-        # don't use dt.replace. use localize
-        # (https://stackoverflow.com/a/1592837/2739124)
-        print('=========================================================')
-        print('STORE DATA SET')
-        print('=========================================================')
-        print(cdl)
-        print(cdl.loc[
-              pytz.timezone(NY).localize(dtbegin) if
-              not dtbegin.tzname() else dtbegin:
-              pytz.timezone(NY).localize(dtend) if
-              not dtend.tzname() else dtend
-              ])
+        
         cdl = cdl.loc[
               pytz.timezone(NY).localize(dtbegin) if
               not dtbegin.tzname() else dtbegin:
