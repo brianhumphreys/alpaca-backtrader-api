@@ -139,19 +139,19 @@ class Streamer:
         self.method = method
         self.q = q
 
-    def run_connection(self, conn):
-        try:
-            conn.run()
-        except KeyboardInterrupt:
-            print("Interrupted execution by user")
-            loop.run_until_complete(conn.stop_ws())
-            exit(0)
-        except Exception as e:
-            print(f'Exception from websocket connection: {e}')
-        finally:
-            print("Trying to re-establish connection")
-            time.sleep(3)
-            self.run_connection(conn)
+    # def run_connection(self, conn):
+    #     try:
+    #         conn.run()
+    #     except KeyboardInterrupt:
+    #         print("Interrupted execution by user")
+    #         loop.run_until_complete(conn.stop_ws())
+    #         exit(0)
+    #     except Exception as e:
+    #         print(f'Exception from websocket connection: {e}')
+    #     finally:
+    #         print("Trying to re-establish connection")
+    #         time.sleep(3)
+    #         self.run_connection(conn)
 
     def run(self):
         if self.method == StreamingMethod.AccountUpdate:
