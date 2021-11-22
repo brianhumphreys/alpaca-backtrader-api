@@ -209,6 +209,7 @@ class AlpacaData(with_metaclass(MetaAlpacaData, DataBase)):
         else:
             self._start_finish()
             self._state = self._ST_START  # initial state for _load
+            print('print _st_start()')
             self._st_start()
 
         self._reconns = 0
