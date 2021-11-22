@@ -125,11 +125,11 @@ class Streamer:
         except RuntimeError:
             asyncio.set_event_loop(asyncio.new_event_loop())
 
-        print('api_key: ', api_key)
-        print('api_secret: ', api_secret)
-        print('base_url: ', base_url)
-        print('data_url: ', data_url)
-        print('data_feed: ', data_feed)
+        # print('api_key: ', api_key)
+        # print('api_secret: ', api_secret)
+        # print('base_url: ', base_url)
+        # print('data_url: ', data_url)
+        # print('data_feed: ', data_feed)
         self.conn = Stream(api_key,
                            api_secret,
                            base_url,
