@@ -4,15 +4,15 @@ from datetime import datetime
 
 
 # Your credentials here
-ALPACA_API_KEY = "<key_id>"
-ALPACA_SECRET_KEY = "<secret_key>"
+ALPACA_API_KEY = "PKY8G88R9K2Q0CWX3DL2"
+ALPACA_SECRET_KEY = "a3wDhyLI5SMNiIzYXHTs46hwePEyQslOG9Mk8iyY"
 """
 You have 3 options:
  - backtest (IS_BACKTEST=True, IS_LIVE=False)
  - paper trade (IS_BACKTEST=False, IS_LIVE=False)
  - live trade (IS_BACKTEST=False, IS_LIVE=True)
 """
-IS_BACKTEST = True
+IS_BACKTEST = False
 IS_LIVE = False
 SYMBOL1 = 'AAPL'
 SYMBOL2 = 'GOOG'
@@ -66,10 +66,12 @@ class SmaCross1(bt.Strategy):
             self.live_bars = True
 
     def next(self):
+        print('woo')
         if not self.live_bars and not IS_BACKTEST:
             # only run code if we have live bars (today's bars).
             # ignore if we are backtesting
             return
+        
         # if fast crosses slow to the upside
         if not self.positionsbyname[SYMBOL1].size and self.crossover0 > 0:
             self.buy(data=data0, size=5)  # enter long
@@ -123,8 +125,8 @@ if __name__ == '__main__':
                             fromdate=datetime(2015, 1, 1),
                             timeframe=bt.TimeFrame.Days,
                             data_feed='iex')
-    cerebro.adddata(data0)
     cerebro.adddata(data1)
+    cerebro.adddata(data0)
 
     if IS_BACKTEST:
         # backtrader broker set initial simulated cash
