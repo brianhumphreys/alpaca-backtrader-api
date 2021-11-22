@@ -620,6 +620,7 @@ class AlpacaStore(with_metaclass(MetaSingleton, object)):
     def streaming_prices(self,
                          dataname, timeframe, tmout=None, data_feed='iex'):
         q = queue.Queue()
+        print('DATANAME: {}'.format(dataname))
         kwargs = {'q':         q,
                   'dataname':  dataname,
                   'timeframe': timeframe,
