@@ -631,6 +631,7 @@ class AlpacaStore(with_metaclass(MetaSingleton, object)):
         return q
 
     def _t_streaming_prices(self, dataname, timeframe, q, tmout, data_feed):
+        print('dataname: {}'.format(dataname))
         if tmout is not None:
             _time.sleep(tmout)
 
