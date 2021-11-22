@@ -105,12 +105,12 @@ if __name__ == '__main__':
                             historical=False,
                             timeframe=bt.TimeFrame.Ticks,
                             backfill_start=False,
-                            data_feed='iex')
+                            data_feed='sip')
         data1 = DataFactory(dataname=SYMBOL2,
                             historical=False,
                             timeframe=bt.TimeFrame.Ticks,
                             backfill_start=False,
-                            data_feed='iex')
+                            data_feed='sip')
         # or just alpaca_backtrader_api.AlpacaBroker()
         broker = store.getbroker()
         cerebro.setbroker(broker)
@@ -119,12 +119,12 @@ if __name__ == '__main__':
                             historical=True,
                             fromdate=datetime(2015, 1, 1),
                             timeframe=bt.TimeFrame.Days,
-                            data_feed='iex')
+                            data_feed='sip')
         data1 = DataFactory(dataname=SYMBOL2,
                             historical=True,
                             fromdate=datetime(2015, 1, 1),
                             timeframe=bt.TimeFrame.Days,
-                            data_feed='iex')
+                            data_feed='sip')
     cerebro.adddata(data1)
     cerebro.adddata(data0)
 

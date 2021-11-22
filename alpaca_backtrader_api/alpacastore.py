@@ -162,8 +162,8 @@ class Streamer:
             print('WOOOOOOP')
             print(self.on_quotes)
             print(self.instrument)
-            self.conn.subscribe_quotes(self.on_quotes, 'GOOG', 'AAPL')
-            # self.conn.subscribe_quotes(self.on_quotes, self.instrument)
+            # self.conn.subscribe_quotes(self.on_quotes, 'GOOG', 'AAPL')
+            self.conn.subscribe_quotes(self.on_quotes, self.instrument)
 
         # this code runs in a new thread. we need to set the loop for it
         loop = asyncio.new_event_loop()
