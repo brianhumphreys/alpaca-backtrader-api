@@ -167,7 +167,10 @@ class Streamer:
         # this code runs in a new thread. we need to set the loop for it
         loop = asyncio.new_event_loop()
         asyncio.set_event_loop(loop)
+
+        print('prerun')
         self.conn.run()
+        print('postrun')
 
     async def on_listen(self, conn, stream, msg):
         pass
