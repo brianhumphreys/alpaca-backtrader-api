@@ -232,6 +232,7 @@ class AlpacaData(with_metaclass(MetaAlpacaData, DataBase)):
 
             self._state = self._ST_HISTORBACK
             return True
+        print('START')
         self.qlive = self.o.streaming_prices(self.p.dataname,
                                              self.p.timeframe,
                                              tmout=tmout,
