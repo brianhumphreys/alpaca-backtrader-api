@@ -369,7 +369,7 @@ class AlpacaStore(with_metaclass(MetaSingleton, object)):
                             base_url=self.p.base_url,
                             data_url=os.environ.get("DATA_PROXY_WS", ''),
                             )
-
+        print('11111')
         streamer.run()
 
     def candles(self, dataname, dtbegin, dtend, timeframe, compression,
@@ -649,7 +649,7 @@ class AlpacaStore(with_metaclass(MetaSingleton, object)):
                             base_url=self.p.base_url,
                             data_url=os.environ.get("DATA_PROXY_WS", ''),
                             data_feed=data_feed)
-
+        print('22222')
         streamer.run()
 
     def get_cash(self):
